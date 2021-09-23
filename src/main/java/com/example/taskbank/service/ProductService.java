@@ -2,6 +2,7 @@ package com.example.taskbank.service;
 
 import com.example.taskbank.mapper.ProductBulkMapper;
 import com.example.taskbank.mapper.ProductMapper;
+import com.example.taskbank.model.Detail;
 import com.example.taskbank.model.Product;
 import com.example.taskbank.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,24 @@ public class ProductService {
     public List<Product>bulk_products(){
         return namedParameterJdbcTemplate.query(bulkQuery,productBulkMapper);
     }
+
+
+
+//    getProductByCategory_Id
+    public List<Product>getProductByCategory_Id(Integer id){
+        return productRepository.getProductByCategory_Id(id);
+    }
+
+//    product/list
+    public List<Product>productList(){
+        return productRepository.findAll();
+    }
+
+    //    product/details/product_id
+    public Product productDetailsProduct_id(Integer id){
+        return productRepository.findById(id).get();
+    }
+
+
 
 }

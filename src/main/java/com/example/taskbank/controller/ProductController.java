@@ -3,9 +3,7 @@ package com.example.taskbank.controller;
 import com.example.taskbank.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -23,5 +21,29 @@ public class ProductController {
     public ResponseEntity bulk_products(){
         return ResponseEntity.ok(productService.bulk_products());
     }
+
+
+
+
+    @GetMapping("/category/{id}")
+    public ResponseEntity getProductByCategory_Id(@PathVariable Integer id){
+        return ResponseEntity.ok(productService.getProductByCategory_Id(id));
+    }
+
+
+    @GetMapping("/product/list")
+    public ResponseEntity findAll(){
+        return ResponseEntity.ok(productService.productList());
+    }
+
+
+
+    @GetMapping("/product/details/{id}")
+    public ResponseEntity getDetailByProductId(@PathVariable Integer id){
+        return ResponseEntity.ok(productService.productDetailsProduct_id(id));
+    }
+
+
+
 
 }

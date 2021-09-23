@@ -1,5 +1,6 @@
 package com.example.taskbank.model;
 
+import com.example.taskbank.Enum.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,4 +22,6 @@ public class Payment {
     private float amount;
     @ManyToOne
     private Invoice invoice;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 }

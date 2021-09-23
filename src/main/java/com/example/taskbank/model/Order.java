@@ -1,5 +1,6 @@
 package com.example.taskbank.model;
 
+import com.example.taskbank.Enum.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,8 @@ public class Order {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "order_details")
     private List<Detail>details;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
 }

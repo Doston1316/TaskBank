@@ -18,10 +18,21 @@ public class PaymentService {
     @Autowired
     private PaymentMapper paymentMapper;
 
-//    overpaid_invoices
-    String query="select p.invoice_id, i.amount from payment as p inner join invoice i on p.id = i.id";
-    public List<Payment>overpaid_invoices(){
-        return namedParameterJdbcTemplate.query(query,paymentMapper);
+    //    overpaid_invoices
+    String query = "select p.invoice_id, i.amount from payment as p inner join invoice i on p.id = i.id";
+    public List<Payment> overpaid_invoices() {
+        return namedParameterJdbcTemplate.query(query, paymentMapper);
+    }
+
+
+    //    savePayment
+    public Payment savePayment(Payment payment) {
+        return paymentRepository.save(payment);
+    }
+
+//    payment_details_id
+    public Payment payment_details_id(Integer id){
+        return paymentRepository.findById(id).get();
     }
 
 }

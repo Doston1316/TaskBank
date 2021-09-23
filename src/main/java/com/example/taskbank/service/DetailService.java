@@ -1,6 +1,7 @@
 package com.example.taskbank.service;
 
 import com.example.taskbank.mapper.DetailMapper;
+import com.example.taskbank.model.Detail;
 import com.example.taskbank.repository.DetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -22,6 +23,10 @@ public class DetailService {
     public List<?>order_without_invoice(){
         return namedParameterJdbcTemplate.query(query,detailMapper);
     }
+
+
+
+
 
 
 }
